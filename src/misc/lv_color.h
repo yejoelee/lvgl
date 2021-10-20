@@ -147,7 +147,7 @@ enum {
 
 # define LV_COLOR_SET_R16(c, v) (c).ch.red = (uint8_t)((v) & 0x1FU)
 #if LV_COLOR_16_SWAP == 0
-# define LV_COLOR_SET_G16(c, v) (c).ch.green = (uint8_t)((v) & 0x3FU)
+# define LV_COLOR_SET_G16(c, v) (c).ch.green = (uint8_t)((v) & 0x1FU)
 #else
 # define LV_COLOR_SET_G16(c, v) {(c).ch.green_h = (uint8_t)(((v) >> 3) & 0x7); (c).ch.green_l = (uint8_t)((v) & 0x7);}
 #endif
@@ -229,8 +229,9 @@ typedef union {
     struct {
 #if LV_COLOR_16_SWAP == 0
         uint16_t blue : 5;
-        uint16_t green : 6;
+        uint16_t green : 5;
         uint16_t red : 5;
+        uint16_t alpha : 1;
 #else
         uint16_t green_h : 3;
         uint16_t red : 5;

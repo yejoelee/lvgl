@@ -1,6 +1,4 @@
-CSRCS += lv_hal_disp.c
-CSRCS += lv_hal_indev.c
-CSRCS += lv_hal_tick.c
+CSRCS += $(shell find -L $(LVGL_DIR)/$(LVGL_DIR_NAME)/src/hal -name \*.c)
 
 DEPPATH += --dep-path $(LVGL_DIR)/$(LVGL_DIR_NAME)/src/hal
 VPATH += :$(LVGL_DIR)/$(LVGL_DIR_NAME)/src/hal
